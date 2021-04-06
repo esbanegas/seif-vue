@@ -10,6 +10,7 @@
                     <Header />
                     <!-- <router-view /> -->
                     <Products />
+                    <!-- <QuestionsModules /> -->
                 </v-container>
             </v-main>
         </v-column>
@@ -21,6 +22,7 @@ import AppNavigation from './components/AppNavigation';
 import Header from './components/Header';
 import Products from './views/support-material/Products';
 // import AddSupportMaterial from './views/support-material/AddSupportMaterial';
+// import QuestionsModules from './views/support-material/QuestionsModules';
 
 export default {
     name: 'App',
@@ -29,6 +31,7 @@ export default {
         AppNavigation,
         Header,
         Products,
+        // QuestionsModules,
     },
 
     data: () => ({

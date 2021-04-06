@@ -32,7 +32,7 @@
                         <v-btn
                             depressed
                             color="titleslight rounded-pill"
-                            @click="reveal = true"
+                            @click="onOpenProduct(item)"
                         >
                             Ver
                         </v-btn>
@@ -41,23 +41,30 @@
             </div>
         </div>
 
-        <AddSupportMaterial v-if="showAddSupportMaterial" :onDismiss="onDismissSupportMaterial"></AddSupportMaterial>
+        <QuestionsModules v-if="showQuestionsModules"> </QuestionsModules>
+        <AddSupportMaterial
+            v-else-if="showAddSupportMaterial"
+            :onDismiss="onDismissSupportMaterial"
+        ></AddSupportMaterial>
     </v-container>
 </template>
 
 <script>
 import AddSupportMaterial from './AddSupportMaterial';
+import QuestionsModules from './QuestionsModules';
 
 export default {
     name: 'Products',
 
     components: {
         AddSupportMaterial,
+        QuestionsModules,
     },
 
     data() {
         return {
             showAddSupportMaterial: false,
+            showQuestionsModules: false,
             items: [
                 { name: 'Seif', icon: 'build' },
                 { name: 'Seif módulos', icon: 'view_module' },
@@ -76,6 +83,13 @@ export default {
 
         onDismissSupportMaterial() {
             this.showAddSupportMaterial = false;
+        },
+
+        onOpenProduct(item) {
+            if (item.name === 'Seif módulos') {
+                this.showQuestionsModules = true;
+                this.showAddSupportMaterial = true;
+            }
         },
     },
 };

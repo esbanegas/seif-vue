@@ -1,8 +1,10 @@
 <template>
     <div class="d-flex flex-column">
-        <div class="address">Vista principal > añadir material de apoyo</div>
+        <div v-if="!editItem" class="address">
+            Vista principal > añadir material de apoyo
+        </div>
 
-        <form id="form" width="200">
+        <form id="form" width="300">
             <div class="header-form">
                 <strong>Material de apoyo</strong>
             </div>
@@ -113,6 +115,8 @@ export default {
             type: Object,
             default: () => {},
         },
+
+        editItem: null,
     },
 
     data() {
@@ -148,6 +152,8 @@ export default {
             this.enviromentSelected = null;
             this.question = null;
             this.answer = null;
+
+            this.isOpenDialog = false;
 
             this.onDismiss();
         },
