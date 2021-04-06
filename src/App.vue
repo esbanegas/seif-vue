@@ -1,32 +1,38 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view />
-  </div>
+    <v-app>
+        <v-column>
+            <AppNavigation />
+        </v-column>
+
+        <v-column>
+            <v-main>
+                <v-container fluid>
+                    <Header />
+                    <!-- <router-view /> -->
+                    <Products />
+                </v-container>
+            </v-main>
+        </v-column>
+    </v-app>
 </template>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+<script>
+import AppNavigation from './components/AppNavigation';
+import Header from './components/Header';
+import Products from './views/support-material/Products';
+// import AddSupportMaterial from './views/support-material/AddSupportMaterial';
 
-#nav {
-  padding: 30px;
-}
+export default {
+    name: 'App',
 
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
+    components: {
+        AppNavigation,
+        Header,
+        Products,
+    },
 
-#nav a.router-link-exact-active {
-  color: #42b983;
-}
-</style>
+    data: () => ({
+        //
+    }),
+};
+</script>
